@@ -1,41 +1,28 @@
 
-const BASE_API = 'https://api.football-data-api.com';
+//const BASE_API = 'http://192.168.0.106:8000/api';
+const BASE_API = 'https://rmr-api.js-software.tech/api';
+
 const API_KEY = 'example';
 export default {
 
-    getLeagueTeams: async () => {
-        const response = await fetch(`${BASE_API}/league-teams?key=${API_KEY}&season_id=1625&include=stats`, {
-            mode:'cors',
-            method: 'GET',
+    getBackHome: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/backHome`, {
+            method: 'POST',
             headers: {
-                Accept: 'application/json'
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
             },
+            body: JSON.stringify({stake, season})
         });
 
         return response.json();
     },
 
-    getLeagueMatches: async () => {
-        const response = await fetch(`${BASE_API}/league-matches?key=${API_KEY}&league_id=1625`, {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json'
-            },
-        });
+   
 
-        return response.json();
-    },
+   
 
-    getLeagueTable: async () => {
-        const response = await fetch(`${BASE_API}/league-tables?key=${API_KEY}&league_id=1625`, {
-            method: 'GET',
-            headers: {
-                Accept: 'application/json'
-            },
-        });
-
-        return response.json();
-    },
+   
     
     
   

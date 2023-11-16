@@ -4,18 +4,18 @@ import { Flex,Text } from '@chakra-ui/react'
 import Api from '../../Api'
 
 const Home = () => {
-  const [teams,setTeams] = useState([]);
+  const [backHomeData,setBackHomeData] = useState([]);
   const [matches,setMatches] = useState([])
-
+  const [stake,setStake] = useState(100);
 
   useEffect(()=>{
-    getTeams();
+    getTable();
    
  },[]);
 
- const getTeams = async () => {
-    let json = await Api.getLeagueTeams();
-    setTeams(json.data);
+ const getTable = async () => {
+    let json = await Api.getBackHome(stake,1625);
+    setBackHomeData(json);
 }
 
 
@@ -23,7 +23,7 @@ const Home = () => {
     <Flex flexDirection={'column'} >
       <Header/>
       <Flex align={'center'} h={'100vh'} justify={'center'}>
-        <Text>Encontradas {teams.lenght} equipes.</Text>
+        <Text>Encontradas {backHomeData.length} equipes.</Text>
       </Flex>
       
     </Flex>
