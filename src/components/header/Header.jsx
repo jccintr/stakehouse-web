@@ -106,7 +106,7 @@ const Header = () => {
                 <NavLink  icon={link.icon} key={link.id}>{link.title}</NavLink>
               ))}
               <Menu>
-                  <MenuButton 
+                  <MenuButton
                     bg={'blue.600'}
                     as={Button}
                     leftIcon={<MdExpandMore color='#ffffff' />}  
