@@ -1,6 +1,6 @@
 
-const BASE_API = 'http://192.168.0.106:8000/api';
-//const BASE_API = 'https://rmr-api.js-software.tech/api';
+//const BASE_API = 'http://192.168.0.106:8000/api';
+const BASE_API = 'https://rmr-api.js-software.tech/api';
 
 const API_KEY = 'example';
 export default {
