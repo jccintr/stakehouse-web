@@ -88,24 +88,30 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
         },
         {
             name: 'Vitórias',
-            selector: row => row.vitorias,
+            selector: row => row.percentual_vitorias+'%',
             center: true,
             width:'100px',
             hide: 'sm',
+            sortable: true,
+            sortFunction: sortLucro,
         },
         {
             name: 'Empates',
-            selector: row => row.empates,
+            selector: row => row.percentual_empates+'%',
             width:'100px',
             center: true,
             hide: 'sm',
+            sortable: true,
+            sortFunction: sortLucro,
         },
         {
             name: 'Derrotas',
-            selector: row => row.derrotas,
+            selector: row => row.percentual_derrotas+'%',
             width:'100px',
             center: true,
             hide: 'sm',
+            sortable: true,
+            sortFunction: sortLucro,
         },
         {
             name: 'Lucro',
@@ -119,7 +125,7 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
                     when: row => row.lucro < 0,
                     style: {
                         color: 'rgba(240, 0, 0, 0.9)',
-                        fontWeight: 'bold'
+                        
                         
                     },
                 }]
@@ -136,7 +142,7 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
                     when: row => row.lucro < 0,
                     style: {
                         color: 'rgba(240, 0, 0, 0.9)',
-                        fontWeight: 'bold'
+                        
                         
                     },
                 }]

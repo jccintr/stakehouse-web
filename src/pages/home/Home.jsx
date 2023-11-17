@@ -16,7 +16,7 @@ const Home = () => {
  },[]);
 
  const getTableCasa = async () => {
-    let json = await Api.getBackHome(stake,1625,true);
+    let json = await Api.getBackHomeCasa(stake,1625);
     setBackHomeDataCasa(json);
 }
 
