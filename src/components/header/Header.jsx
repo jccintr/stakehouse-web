@@ -55,8 +55,8 @@ const Header = () => {
 
   return (
     <>
-      <Box bg='blue.600' px={[1,6]}>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Box w={'100%'} bg='blue.600' px={[1,6]}>
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'} >
           <IconButton
             bg={'blue.600'}
             size={'md'}
