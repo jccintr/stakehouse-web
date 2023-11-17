@@ -5,17 +5,24 @@ import Api from '../../Api'
 import TableBackHome from '../../components/tables/TableBackHome'
 
 const Home = () => {
-  const [backHomeData,setBackHomeData] = useState([]);
+  const [backHomeDataCasa,setBackHomeDataCasa] = useState([]);
+  const [backHomeDataVisitante,setBackHomeDataVisitante] = useState([]);
   const [stake,setStake] = useState(100);
 
   useEffect(()=>{
-    getTable();
+    getTableCasa();
+    getTableVisitante();
    
  },[]);
 
- const getTable = async () => {
-    let json = await Api.getBackHome(stake,1625);
-    setBackHomeData(json);
+ const getTableCasa = async () => {
+    let json = await Api.getBackHome(stake,1625,true);
+    setBackHomeDataCasa(json);
+}
+
+const getTableVisitante = async () => {
+  let json = await Api.getBackHome(stake,1625,false);
+  setBackHomeDataVisitante(json);
 }
 
 
@@ -23,7 +30,7 @@ const Home = () => {
     <Flex flexDirection={'column'} alignItems={'center'} bg={'gray.100'}>
       <Header/>
       
-        <TableBackHome data={backHomeData}/>
+        <TableBackHome dataCasa={backHomeDataCasa} dataVisitante={backHomeDataVisitante}/>
       
       
     </Flex>

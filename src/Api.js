@@ -5,14 +5,14 @@ const BASE_API = 'https://rmr-api.js-software.tech/api';
 const API_KEY = 'example';
 export default {
 
-    getBackHome: async (stake,season) => {
+    getBackHome: async (stake,season,home) => {
         const response = await fetch(`${BASE_API}/backHome`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({stake, season})
+            body: JSON.stringify({stake, season,home})
         });
 
         return response.json();

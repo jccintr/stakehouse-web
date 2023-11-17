@@ -1,6 +1,7 @@
 import React from 'react';
 import DataTable from 'react-data-table-component';
 import { Box,useColorModeValue,Heading,Text } from '@chakra-ui/react';
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 
 const paginationComponentOptions = {
     rowsPerPageText: 'Registros por Página',
@@ -9,7 +10,7 @@ const paginationComponentOptions = {
     selectAllRowsItemText: 'Todos',
   };
 
-const TableBackHome = ({data}) => {
+const TableBackHome = ({dataCasa,dataVisitante}) => {
 
 
     const customStyles = {
@@ -149,15 +150,37 @@ const TableBackHome = ({data}) => {
   return (
     <Box w={['350px','1200px']} rounded={'lg'} bg={useColorModeValue('white', 'gray.700')} boxShadow={['none','lg']} p={[1,8]} m={[1,2]}>
      <Text>Back Home</Text>
-        <DataTable
-            columns={columns}
-            data={data}
-            highlightOnHover
-            noDataComponent="Carregando registros."
-            customStyles={customStyles}
-            pagination
-            paginationComponentOptions={paginationComponentOptions}
-        />
+        <Tabs>
+            <TabList>
+                <Tab>Casa</Tab>
+                <Tab>Visitante</Tab>
+            </TabList>
+            <TabPanels>
+                <TabPanel>
+                    <DataTable
+                        columns={columns}
+                        data={dataCasa}
+                        highlightOnHover
+                        noDataComponent="Carregando registros."
+                        customStyles={customStyles}
+                        pagination
+                        paginationComponentOptions={paginationComponentOptions}
+                    />
+                </TabPanel>
+                <TabPanel>
+                     <DataTable
+                        columns={columns}
+                        data={dataVisitante}
+                        highlightOnHover
+                        noDataComponent="Carregando registros."
+                        customStyles={customStyles}
+                        pagination
+                        paginationComponentOptions={paginationComponentOptions}
+                     />
+                </TabPanel>
+            </TabPanels>
+        </Tabs>
+        
 
     </Box>
   )
