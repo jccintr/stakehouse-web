@@ -2,6 +2,13 @@ import React from 'react';
 import DataTable from 'react-data-table-component';
 import { Box,useColorModeValue,Heading,Text } from '@chakra-ui/react';
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
+import {
+    Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
+  } from '@chakra-ui/react'
 
 const paginationComponentOptions = {
     rowsPerPageText: 'Registros por Página',
@@ -10,7 +17,7 @@ const paginationComponentOptions = {
     selectAllRowsItemText: 'Todos',
   };
 
-const TableBackHome = ({dataCasa,dataVisitante}) => {
+const TableBackHome = ({dataCasa,dataVisitante,title}) => {
 
 
     const customStyles = {
@@ -57,6 +64,67 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
         return 0;
     };
     
+    const sortRoi = (rowA, rowB) => {
+        const a = rowA.roi;
+        const b = rowB.roi;
+    
+        if (a > b) {
+            return 1;
+        }
+    
+        if (b > a) {
+            return -1;
+        }
+    
+        return 0;
+    };
+
+    const sortVitorias = (rowA, rowB) => {
+        const a = rowA.percentual_vitorias;
+        const b = rowB.percentual_vitorias;
+    
+        if (a > b) {
+            return 1;
+        }
+    
+        if (b > a) {
+            return -1;
+        }
+    
+        return 0;
+    };
+
+    const sortEmpates = (rowA, rowB) => {
+        const a = rowA.percentual_empates;
+        const b = rowB.percentual_empates;
+    
+        if (a > b) {
+            return 1;
+        }
+    
+        if (b > a) {
+            return -1;
+        }
+    
+        return 0;
+    };
+
+    const sortDerrotas = (rowA, rowB) => {
+        const a = rowA.percentual_derrotas;
+        const b = rowB.percentual_derrotas;
+    
+        if (a > b) {
+            return 1;
+        }
+    
+        if (b > a) {
+            return -1;
+        }
+    
+        return 0;
+    };
+
+   
    
     const columns = [
         {
@@ -93,7 +161,7 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
             width:'100px',
             hide: 'sm',
             sortable: true,
-            sortFunction: sortLucro,
+            sortFunction: sortVitorias,
         },
         {
             name: 'Empates',
@@ -102,7 +170,7 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
             center: true,
             hide: 'sm',
             sortable: true,
-            sortFunction: sortLucro,
+            sortFunction: sortEmpates,
         },
         {
             name: 'Derrotas',
@@ -111,7 +179,7 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
             center: true,
             hide: 'sm',
             sortable: true,
-            sortFunction: sortLucro,
+            sortFunction: sortDerrotas,
         },
         {
             name: 'Lucro',
@@ -139,11 +207,9 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
             sortFunction: sortLucro,
             conditionalCellStyles: [
                 {
-                    when: row => row.lucro < 0,
+                    when: row => row.roi < 0,
                     style: {
                         color: 'rgba(240, 0, 0, 0.9)',
-                        
-                        
                     },
                 }]
            
@@ -155,8 +221,14 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
 
   return (
     <Box w={['350px','1200px']} rounded={'lg'} bg={useColorModeValue('white', 'gray.700')} boxShadow={['none','lg']} p={[1,8]} m={[1,2]}>
-     <Text>Back Home</Text>
-        <Tabs>
+        <Accordion defaultIndex={[0]} allowMultiple>
+          <AccordionItem>
+             <AccordionButton>
+                <AccordionIcon fontSize={'24px'}/>
+                <Text>{title}</Text>
+             </AccordionButton>
+             <AccordionPanel pb={4}>
+             <Tabs>
             <TabList>
                 <Tab>Casa</Tab>
                 <Tab>Visitante</Tab>
@@ -186,6 +258,11 @@ const TableBackHome = ({dataCasa,dataVisitante}) => {
                 </TabPanel>
             </TabPanels>
         </Tabs>
+             </AccordionPanel>
+          </AccordionItem>
+        </Accordion>
+    
+      
         
 
     </Box>

@@ -7,30 +7,208 @@ import TableBackHome from '../../components/tables/TableBackHome'
 const Home = () => {
   const [backHomeDataCasa,setBackHomeDataCasa] = useState([]);
   const [backHomeDataVisitante,setBackHomeDataVisitante] = useState([]);
+
+  const [backDrawDataCasa,setBackDrawDataCasa] = useState([]);
+  const [backDrawDataVisitante,setBackDrawDataVisitante] = useState([]);
+
+  const [backAwayDataCasa,setBackAwayDataCasa] = useState([]);
+  const [backAwayDataVisitante,setBackAwayDataVisitante] = useState([]);
+
+  const [backOver05DataCasa,setBackOver05DataCasa] = useState([]);
+  const [backOver05DataVisitante,setBackOver05DataVisitante] = useState([]);
+
+  const [backOver15DataCasa,setBackOver15DataCasa] = useState([]);
+  const [backOver15DataVisitante,setBackOver15DataVisitante] = useState([]);
+
+  const [backOver25DataCasa,setBackOver25DataCasa] = useState([]);
+  const [backOver25DataVisitante,setBackOver25DataVisitante] = useState([]);
+
+  const [backOver35DataCasa,setBackOver35DataCasa] = useState([]);
+  const [backOver35DataVisitante,setBackOver35DataVisitante] = useState([]);
+
+  const [backOver45DataCasa,setBackOver45DataCasa] = useState([]);
+  const [backOver45DataVisitante,setBackOver45DataVisitante] = useState([]);
+
+  const [backUnder05DataCasa,setBackUnder05DataCasa] = useState([]);
+  const [backUnder05DataVisitante,setBackUnder05DataVisitante] = useState([]);
+
+  const [backUnder15DataCasa,setBackUnder15DataCasa] = useState([]);
+  const [backUnder15DataVisitante,setBackUnder15DataVisitante] = useState([]);
+
+  const [backUnder25DataCasa,setBackUnder25DataCasa] = useState([]);
+  const [backUnder25DataVisitante,setBackUnder25DataVisitante] = useState([]);
+
+  const [backUnder35DataCasa,setBackUnder35DataCasa] = useState([]);
+  const [backUnder35DataVisitante,setBackUnder35DataVisitante] = useState([]);
+
+  const [backUnder45DataCasa,setBackUnder45DataCasa] = useState([]);
+  const [backUnder45DataVisitante,setBackUnder45DataVisitante] = useState([]);
+ 
+ 
   const [stake,setStake] = useState(100);
 
   useEffect(()=>{
-    getTableCasa();
-    getTableVisitante();
+    getBackHomeCasa();
+    getBackHomeVisitante();
+    getBackDrawCasa();
+    getBackDrawVisitante();
+    getBackAwayCasa();
+    getBackAwayVisitante();
+    getBackOverCasa(0.5);
+    getBackOverVisitante(0.5);
+    getBackOverCasa(1.5);
+    getBackOverVisitante(1.5);
+    getBackOverCasa(2.5);
+    getBackOverVisitante(2.5);
+    getBackOverCasa(3.5);
+    getBackOverVisitante(3.5);
+    getBackOverCasa(4.5);
+    getBackOverVisitante(4.5);
+    getBackUnderCasa(0.5);
+    getBackUnderVisitante(0.5);
+    getBackUnderCasa(1.5);
+    getBackUnderVisitante(1.5);
+    getBackUnderCasa(2.5);
+    getBackUnderVisitante(2.5);
+    getBackUnderCasa(3.5);
+    getBackUnderVisitante(3.5);
+    getBackUnderCasa(4.5);
+    getBackUnderVisitante(4.5);
    
  },[]);
 
- const getTableCasa = async () => {
+ const getBackHomeCasa = async () => {
     let json = await Api.getBackHomeCasa(stake,1625);
     setBackHomeDataCasa(json);
 }
 
-const getTableVisitante = async () => {
-  let json = await Api.getBackHome(stake,1625,false);
+const getBackHomeVisitante = async () => {
+  let json = await Api.getBackHomeVisitante(stake,1625);
   setBackHomeDataVisitante(json);
 }
+
+const getBackDrawCasa = async () => {
+  let json = await Api.getBackDrawCasa(stake,1625);
+  setBackDrawDataCasa(json);
+}
+
+const getBackDrawVisitante = async () => {
+  let json = await Api.getBackDrawVisitante(stake,1625);
+  setBackDrawDataVisitante(json);
+}
+
+const getBackAwayCasa = async () => {
+  let json = await Api.getBackAwayCasa(stake,1625);
+  setBackAwayDataCasa(json);
+}
+
+const getBackAwayVisitante = async () => {
+let json = await Api.getBackAwayVisitante(stake,1625);
+setBackAwayDataVisitante(json);
+}
+
+const getBackOverCasa = async (over) => {
+  let json = await Api.getBackOverCasa(stake,1625,over);
+  if(over===0.5){
+    setBackOver05DataCasa(json);
+  }
+  if(over===1.5){
+    setBackOver15DataCasa(json);
+  }
+  if(over===2.5){
+    setBackOver25DataCasa(json);
+  }
+  if(over===3.5){
+    setBackOver35DataCasa(json);
+  }
+  if(over===4.5){
+    setBackOver45DataCasa(json);
+  }
+  
+}
+
+const getBackOverVisitante = async (over) => {
+  let json = await Api.getBackOverVisitante(stake,1625,over);
+  if(over===0.5){
+    setBackOver05DataVisitante(json);
+  }
+  if(over===1.5){
+    setBackOver15DataVisitante(json);
+  }
+  if(over===2.5){
+    setBackOver25DataVisitante(json);
+  }
+  if(over===3.5){
+    setBackOver35DataVisitante(json);
+  }
+  if(over===4.5){
+    setBackOver45DataVisitante(json);
+  }
+
+}
+
+const getBackUnderCasa = async (under) => {
+  let json = await Api.getBackUnderCasa(stake,1625,under);
+  if(under===0.5){
+    setBackUnder05DataCasa(json);
+  }
+  if(under===1.5){
+    setBackUnder15DataCasa(json);
+  }
+  if(under===2.5){
+    setBackUnder25DataCasa(json);
+  }
+  if(under===3.5){
+    setBackUnder35DataCasa(json);
+  }
+  if(under===4.5){
+    setBackUnder45DataCasa(json);
+  }
+  
+}
+
+const getBackUnderVisitante = async (under) => {
+  let json = await Api.getBackUnderVisitante(stake,1625,under);
+  if(under===0.5){
+    setBackUnder05DataVisitante(json);
+  }
+  if(under===1.5){
+    setBackUnder15DataVisitante(json);
+  }
+  if(under===2.5){
+    setBackUnder25DataVisitante(json);
+  }
+  if(under===3.5){
+    setBackUnder35DataVisitante(json);
+  }
+  if(under===4.5){
+    setBackUnder45DataVisitante(json);
+  }
+
+}
+
+
 
 
   return (
     <Flex flexDirection={'column'} alignItems={'center'} bg={'gray.100'}>
       <Header/>
       
-        <TableBackHome dataCasa={backHomeDataCasa} dataVisitante={backHomeDataVisitante}/>
+        <TableBackHome title={'Back Home'} dataCasa={backHomeDataCasa} dataVisitante={backHomeDataVisitante}/>
+        <TableBackHome title={'Back Draw'} dataCasa={backDrawDataCasa} dataVisitante={backDrawDataVisitante}/>
+        <TableBackHome title={'Back away'} dataCasa={backAwayDataCasa} dataVisitante={backAwayDataVisitante}/>
+
+        <TableBackHome title={'Back Over 0.5 FT'} dataCasa={backOver05DataCasa} dataVisitante={backOver05DataVisitante}/>
+        <TableBackHome title={'Back Over 1.5 FT'} dataCasa={backOver15DataCasa} dataVisitante={backOver15DataVisitante}/>
+        <TableBackHome title={'Back Over 2.5 FT'} dataCasa={backOver25DataCasa} dataVisitante={backOver25DataVisitante}/>
+        <TableBackHome title={'Back Over 3.5 FT'} dataCasa={backOver35DataCasa} dataVisitante={backOver35DataVisitante}/>
+        <TableBackHome title={'Back Over 4.5 FT'} dataCasa={backOver45DataCasa} dataVisitante={backOver45DataVisitante}/>
+
+        <TableBackHome title={'Back Under 0.5 FT'} dataCasa={backUnder05DataCasa} dataVisitante={backUnder05DataVisitante}/>
+        <TableBackHome title={'Back Under 1.5 FT'} dataCasa={backUnder15DataCasa} dataVisitante={backUnder15DataVisitante}/>
+        <TableBackHome title={'Back Under 2.5 FT'} dataCasa={backUnder25DataCasa} dataVisitante={backUnder25DataVisitante}/>
+        <TableBackHome title={'Back Under 3.5 FT'} dataCasa={backUnder35DataCasa} dataVisitante={backUnder35DataVisitante}/>
+        <TableBackHome title={'Back Under 4.5 FT'} dataCasa={backUnder45DataCasa} dataVisitante={backUnder45DataVisitante}/>
       
       
     </Flex>
