@@ -3,6 +3,15 @@ import Header from '../../components/header/Header'
 import { Flex,Text } from '@chakra-ui/react'
 import Api from '../../Api'
 import TableBackHome from '../../components/tables/TableBackHome'
+import TableBackOver05 from '../../components/tables/TableBackOver05'
+import TableBackOver25 from '../../components/tables/TableBackOver25'
+import TableBackOver35 from '../../components/tables/TableBackOver35'
+import TableBackOver45 from '../../components/tables/TableBackOver45'
+import TableBackUnder05 from '../../components/tables/TableBackUnder05'
+import TableBackUnder25 from '../../components/tables/TableBackUnder25'
+import TableBackUnder35 from '../../components/tables/TableBackUnder35'
+import TableBackUnder45 from '../../components/tables/TableBackUnder45'
+import TableBackBTTX from '../../components/tables/TableBackBTTX'
 
 const Home = () => {
   const [backHomeDataCasa,setBackHomeDataCasa] = useState([]);
@@ -43,6 +52,12 @@ const Home = () => {
 
   const [backUnder45DataCasa,setBackUnder45DataCasa] = useState([]);
   const [backUnder45DataVisitante,setBackUnder45DataVisitante] = useState([]);
+
+  const [backBTTSDataCasa,setBackBTTSDataCasa] = useState([]);
+  const [backBTTSDataVisitante,setBackBTTSDataVisitante] = useState([]);
+
+  const [backBTTNDataCasa,setBackBTTNDataCasa] = useState([]);
+  const [backBTTNDataVisitante,setBackBTTNDataVisitante] = useState([]);
  
  
   const [stake,setStake] = useState(100);
@@ -74,7 +89,10 @@ const Home = () => {
     getBackUnderVisitante(3.5);
     getBackUnderCasa(4.5);
     getBackUnderVisitante(4.5);
-   
+    getBackBTTNCasa();
+    getBackBTTNVisitante();
+    getBackBTTSCasa();
+    getBackBTTSVisitante();
  },[]);
 
  const getBackHomeCasa = async () => {
@@ -187,6 +205,24 @@ const getBackUnderVisitante = async (under) => {
 
 }
 
+const getBackBTTSCasa = async () => {
+  let json = await Api.getBackBTTSCasa(stake,1625);
+  setBackBTTSDataCasa(json);
+}
+const getBackBTTSVisitante = async () => {
+  let json = await Api.getBackBTTSVisitante(stake,1625);
+  setBackBTTSDataVisitante(json);
+}
+
+const getBackBTTNCasa = async () => {
+  let json = await Api.getBackBTTNCasa(stake,1625);
+  setBackBTTNDataCasa(json);
+}
+const getBackBTTNVisitante = async () => {
+  let json = await Api.getBackBTTNVisitante(stake,1625);
+  setBackBTTNDataVisitante(json);
+}
+
 
 
 
@@ -196,19 +232,22 @@ const getBackUnderVisitante = async (under) => {
       
         <TableBackHome title={'Back Home'} dataCasa={backHomeDataCasa} dataVisitante={backHomeDataVisitante}/>
         <TableBackHome title={'Back Draw'} dataCasa={backDrawDataCasa} dataVisitante={backDrawDataVisitante}/>
-        <TableBackHome title={'Back away'} dataCasa={backAwayDataCasa} dataVisitante={backAwayDataVisitante}/>
+        <TableBackHome title={'Back Away'} dataCasa={backAwayDataCasa} dataVisitante={backAwayDataVisitante}/>
 
-        <TableBackHome title={'Back Over 0.5 FT'} dataCasa={backOver05DataCasa} dataVisitante={backOver05DataVisitante}/>
-        <TableBackHome title={'Back Over 1.5 FT'} dataCasa={backOver15DataCasa} dataVisitante={backOver15DataVisitante}/>
-        <TableBackHome title={'Back Over 2.5 FT'} dataCasa={backOver25DataCasa} dataVisitante={backOver25DataVisitante}/>
-        <TableBackHome title={'Back Over 3.5 FT'} dataCasa={backOver35DataCasa} dataVisitante={backOver35DataVisitante}/>
-        <TableBackHome title={'Back Over 4.5 FT'} dataCasa={backOver45DataCasa} dataVisitante={backOver45DataVisitante}/>
+        <TableBackOver05 title={'Back Over 0.5 FT'} dataCasa={backOver05DataCasa} dataVisitante={backOver05DataVisitante}/>
+        <TableBackOver05 title={'Back Over 1.5 FT'} dataCasa={backOver15DataCasa} dataVisitante={backOver15DataVisitante}/>
+        <TableBackOver25 title={'Back Over 2.5 FT'} dataCasa={backOver25DataCasa} dataVisitante={backOver25DataVisitante}/>
+        <TableBackOver35 title={'Back Over 3.5 FT'} dataCasa={backOver35DataCasa} dataVisitante={backOver35DataVisitante}/>
+        <TableBackOver45 title={'Back Over 4.5 FT'} dataCasa={backOver45DataCasa} dataVisitante={backOver45DataVisitante}/>
 
-        <TableBackHome title={'Back Under 0.5 FT'} dataCasa={backUnder05DataCasa} dataVisitante={backUnder05DataVisitante}/>
-        <TableBackHome title={'Back Under 1.5 FT'} dataCasa={backUnder15DataCasa} dataVisitante={backUnder15DataVisitante}/>
-        <TableBackHome title={'Back Under 2.5 FT'} dataCasa={backUnder25DataCasa} dataVisitante={backUnder25DataVisitante}/>
-        <TableBackHome title={'Back Under 3.5 FT'} dataCasa={backUnder35DataCasa} dataVisitante={backUnder35DataVisitante}/>
-        <TableBackHome title={'Back Under 4.5 FT'} dataCasa={backUnder45DataCasa} dataVisitante={backUnder45DataVisitante}/>
+        <TableBackUnder05 title={'Back Under 0.5 FT'} dataCasa={backUnder05DataCasa} dataVisitante={backUnder05DataVisitante}/>
+        <TableBackUnder05 title={'Back Under 1.5 FT'} dataCasa={backUnder15DataCasa} dataVisitante={backUnder15DataVisitante}/>
+        <TableBackUnder25 title={'Back Under 2.5 FT'} dataCasa={backUnder25DataCasa} dataVisitante={backUnder25DataVisitante}/>
+        <TableBackUnder35 title={'Back Under 3.5 FT'} dataCasa={backUnder35DataCasa} dataVisitante={backUnder35DataVisitante}/>
+        <TableBackUnder45 title={'Back Under 4.5 FT'} dataCasa={backUnder45DataCasa} dataVisitante={backUnder45DataVisitante}/>
+       
+        <TableBackBTTX title={'Back BTTS'} dataCasa={backBTTSDataCasa} dataVisitante={backBTTSDataVisitante}/>
+        <TableBackBTTX title={'Back BTTN'} dataCasa={backBTTNDataCasa} dataVisitante={backBTTNDataVisitante}/>
       
       
     </Flex>

@@ -129,6 +129,54 @@ export default {
 
         return response.json();
     },
+    getBackBTTSCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/backBTTSCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+    getBackBTTSVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/backBTTSVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+    getBackBTTNCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/backBTTNCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+    getBackBTTNVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/backBTTNVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
 
    
 
