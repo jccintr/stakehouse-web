@@ -198,6 +198,7 @@ const TableBackUnder35 = ({dataCasa,dataVisitante,title}) => {
             right: true,
             sortable: true,
             sortFunction: sortLucro,
+            hide: 'sm',
             conditionalCellStyles: [
                 {
                     when: row => row.roi < 0,

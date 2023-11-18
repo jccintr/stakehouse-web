@@ -140,7 +140,6 @@ const TableBackHome = ({dataCasa,dataVisitante,title}) => {
        
         {
           name: 'Time',
-          
           cell: row => <><img style={{width:20,height:20,marginRight:5}} src={`${row.imagem}`} /><Text>{row.equipe}</Text></>,
           sortable: true,
           sortFunction: sortEquipes
@@ -148,7 +147,6 @@ const TableBackHome = ({dataCasa,dataVisitante,title}) => {
        
         {
             name: 'Partidas',
-            
             center: true,
             selector: row => row.partidas,
             hide: 'sm',
@@ -204,6 +202,7 @@ const TableBackHome = ({dataCasa,dataVisitante,title}) => {
             width:'100px',
             right: true,
             sortable: true,
+            hide: 'sm',
             sortFunction: sortLucro,
             conditionalCellStyles: [
                 {

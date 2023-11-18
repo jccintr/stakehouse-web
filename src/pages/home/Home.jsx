@@ -69,6 +69,7 @@ const Home = () => {
     getBackDrawVisitante();
     getBackAwayCasa();
     getBackAwayVisitante();
+    
     getBackOverCasa(0.5);
     getBackOverVisitante(0.5);
     getBackOverCasa(1.5);
@@ -79,6 +80,7 @@ const Home = () => {
     getBackOverVisitante(3.5);
     getBackOverCasa(4.5);
     getBackOverVisitante(4.5);
+
     getBackUnderCasa(0.5);
     getBackUnderVisitante(0.5);
     getBackUnderCasa(1.5);
@@ -89,6 +91,7 @@ const Home = () => {
     getBackUnderVisitante(3.5);
     getBackUnderCasa(4.5);
     getBackUnderVisitante(4.5);
+
     getBackBTTNCasa();
     getBackBTTNVisitante();
     getBackBTTSCasa();

@@ -204,6 +204,7 @@ const TableBackBTTX = ({dataCasa,dataVisitante,title}) => {
             width:'100px',
             right: true,
             sortable: true,
+            hide: 'sm',
             sortFunction: sortLucro,
             conditionalCellStyles: [
                 {
