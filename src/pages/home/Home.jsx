@@ -59,6 +59,17 @@ const Home = () => {
   const [backBTTNDataCasa,setBackBTTNDataCasa] = useState([]);
   const [backBTTNDataVisitante,setBackBTTNDataVisitante] = useState([]);
  
+  const [layHomeDataCasa,setLayHomeDataCasa] = useState([]);
+  const [layHomeDataVisitante,setLayHomeDataVisitante] = useState([]);
+
+  const [layDrawDataCasa,setLayDrawDataCasa] = useState([]);
+  const [layDrawDataVisitante,setLayDrawDataVisitante] = useState([]);
+
+  const [layAwayDataCasa,setLayAwayDataCasa] = useState([]);
+  const [layAwayDataVisitante,setLayAwayDataVisitante] = useState([]);
+
+
+
  
   const [stake,setStake] = useState(100);
 
@@ -96,6 +107,13 @@ const Home = () => {
     getBackBTTNVisitante();
     getBackBTTSCasa();
     getBackBTTSVisitante();
+
+    getLayAwayCasa();
+    getLayAwayVisitante();
+    getLayDrawCasa();
+    getLayDrawVisitante();
+    getLayHomeCasa();
+    getLayHomeVisitante();
  },[]);
 
  const getBackHomeCasa = async () => {
@@ -226,6 +244,36 @@ const getBackBTTNVisitante = async () => {
   setBackBTTNDataVisitante(json);
 }
 
+const getLayHomeCasa = async () => {
+  let json = await Api.getLayHomeCasa(stake,1625);
+  setLayHomeDataCasa(json);
+}
+
+const getLayHomeVisitante = async () => {
+let json = await Api.getLayHomeVisitante(stake,1625);
+setLayHomeDataVisitante(json);
+}
+
+const getLayDrawCasa = async () => {
+  let json = await Api.getLayDrawCasa(stake,1625);
+  setLayDrawDataCasa(json);
+}
+
+const getLayDrawVisitante = async () => {
+let json = await Api.getLayDrawVisitante(stake,1625);
+setLayDrawDataVisitante(json);
+}
+
+const getLayAwayCasa = async () => {
+  let json = await Api.getLayAwayCasa(stake,1625);
+  setLayAwayDataCasa(json);
+}
+
+const getLayAwayVisitante = async () => {
+let json = await Api.getLayAwayVisitante(stake,1625);
+setLayAwayDataVisitante(json);
+}
+
 
 
 
@@ -252,6 +300,9 @@ const getBackBTTNVisitante = async () => {
         <TableBackBTTX title={'Back BTTS'} dataCasa={backBTTSDataCasa} dataVisitante={backBTTSDataVisitante}/>
         <TableBackBTTX title={'Back BTTN'} dataCasa={backBTTNDataCasa} dataVisitante={backBTTNDataVisitante}/>
       
+        <TableBackHome title={'Lay Home'} dataCasa={layHomeDataCasa} dataVisitante={layHomeDataVisitante}/>
+        <TableBackHome title={'Lay Draw'} dataCasa={layDrawDataCasa} dataVisitante={layDrawDataVisitante}/>
+        <TableBackHome title={'Lay Away'} dataCasa={layAwayDataCasa} dataVisitante={layAwayDataVisitante}/>
       
     </Flex>
   )

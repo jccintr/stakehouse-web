@@ -177,6 +177,82 @@ export default {
 
         return response.json();
     },
+    getLayHomeCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/layHomeCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getLayHomeVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/layHomeVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+    getLayDrawCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/layDrawCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getLayDrawVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/layDrawVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+    getLayAwayCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/layAwayCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getLayAwayVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/layAwayVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
 
    
 
