@@ -253,6 +253,86 @@ export default {
         return response.json();
     },
 
+    getDoubleChance1xCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/doubleChance1xCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getDoubleChance1xVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/doubleChance1xVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getDoubleChance12Casa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/doubleChance12Casa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getDoubleChance12Visitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/doubleChance12Visitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getDoubleChancex2Casa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/doubleChancex2Casa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getDoubleChancex2Visitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/doubleChancex2Visitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    
+
 
    
 

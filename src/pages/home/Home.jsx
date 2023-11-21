@@ -68,52 +68,62 @@ const Home = () => {
   const [layAwayDataCasa,setLayAwayDataCasa] = useState([]);
   const [layAwayDataVisitante,setLayAwayDataVisitante] = useState([]);
 
+  const [doubleChance1xDataCasa,setDoubleChance1xDataCasa] = useState([]);
+  const [doubleChance1xDataVisitante,setDoubleChance1xDataVisitante] = useState([]);
 
+  const [doubleChance12DataCasa,setDoubleChance12DataCasa] = useState([]);
+  const [doubleChance12DataVisitante,setDoubleChance12DataVisitante] = useState([]);
+
+
+  const [doubleChancex2DataCasa,setDoubleChancex2DataCasa] = useState([]);
+  const [doubleChancex2DataVisitante,setDoubleChancex2DataVisitante] = useState([]);
 
  
   const [stake,setStake] = useState(100);
 
   useEffect(()=>{
-    getBackHomeCasa();
-    getBackHomeVisitante();
-    getBackDrawCasa();
-    getBackDrawVisitante();
-    getBackAwayCasa();
-    getBackAwayVisitante();
+    // getBackHomeCasa();
+    // getBackHomeVisitante();
+    // getBackDrawCasa();
+    // getBackDrawVisitante();
+    // getBackAwayCasa();
+    // getBackAwayVisitante();
     
-    getBackOverCasa(0.5);
-    getBackOverVisitante(0.5);
-    getBackOverCasa(1.5);
-    getBackOverVisitante(1.5);
-    getBackOverCasa(2.5);
-    getBackOverVisitante(2.5);
-    getBackOverCasa(3.5);
-    getBackOverVisitante(3.5);
-    getBackOverCasa(4.5);
-    getBackOverVisitante(4.5);
+    // getBackOverCasa(0.5);
+    // getBackOverVisitante(0.5);
+    // getBackOverCasa(1.5);
+    // getBackOverVisitante(1.5);
+    // getBackOverCasa(2.5);
+    // getBackOverVisitante(2.5);
+    // getBackOverCasa(3.5);
+    // getBackOverVisitante(3.5);
+    // getBackOverCasa(4.5);
+    // getBackOverVisitante(4.5);
 
-    getBackUnderCasa(0.5);
-    getBackUnderVisitante(0.5);
-    getBackUnderCasa(1.5);
-    getBackUnderVisitante(1.5);
-    getBackUnderCasa(2.5);
-    getBackUnderVisitante(2.5);
-    getBackUnderCasa(3.5);
-    getBackUnderVisitante(3.5);
-    getBackUnderCasa(4.5);
-    getBackUnderVisitante(4.5);
+    // getBackUnderCasa(0.5);
+    // getBackUnderVisitante(0.5);
+    // getBackUnderCasa(1.5);
+    // getBackUnderVisitante(1.5);
+    // getBackUnderCasa(2.5);
+    // getBackUnderVisitante(2.5);
+    // getBackUnderCasa(3.5);
+    // getBackUnderVisitante(3.5);
+    // getBackUnderCasa(4.5);
+    // getBackUnderVisitante(4.5);
 
-    getBackBTTNCasa();
-    getBackBTTNVisitante();
-    getBackBTTSCasa();
-    getBackBTTSVisitante();
+    // getBackBTTNCasa();
+    // getBackBTTNVisitante();
+    // getBackBTTSCasa();
+    // getBackBTTSVisitante();
 
-    getLayAwayCasa();
-    getLayAwayVisitante();
-    getLayDrawCasa();
-    getLayDrawVisitante();
-    getLayHomeCasa();
-    getLayHomeVisitante();
+    // getLayAwayCasa();
+    // getLayAwayVisitante();
+    // getLayDrawCasa();
+    // getLayDrawVisitante();
+    // getLayHomeCasa();
+    // getLayHomeVisitante();
+
+    getDoubleChance();
  },[]);
 
  const getBackHomeCasa = async () => {
@@ -274,13 +284,35 @@ let json = await Api.getLayAwayVisitante(stake,1625);
 setLayAwayDataVisitante(json);
 }
 
+const getDoubleChance = async () => {
+  
+  let json1 = await Api.getDoubleChance1xCasa(stake,1625);
+  setDoubleChance1xDataCasa(json1);
+
+  let json2 = await Api.getDoubleChance1xVisitante(stake,1625);
+  setDoubleChance1xDataVisitante(json2);
+
+  let json3 = await Api.getDoubleChance12Casa(stake,1625);
+  setDoubleChance12DataCasa(json3);
+
+  let json4 = await Api.getDoubleChance12Visitante(stake,1625);
+  setDoubleChance12DataVisitante(json4);
+
+  let json5 = await Api.getDoubleChancex2Casa(stake,1625);
+  setDoubleChancex2DataCasa(json5);
+
+  let json6 = await Api.getDoubleChancex2Visitante(stake,1625);
+  setDoubleChancex2DataVisitante(json6);
+
+}
+
 
 
 
   return (
     <Flex flexDirection={'column'} alignItems={'center'} bg={'gray.100'}>
       <Header/>
-      
+      {/*
         <TableBackHome title={'Back Home'} dataCasa={backHomeDataCasa} dataVisitante={backHomeDataVisitante}/>
         <TableBackHome title={'Back Draw'} dataCasa={backDrawDataCasa} dataVisitante={backDrawDataVisitante}/>
         <TableBackHome title={'Back Away'} dataCasa={backAwayDataCasa} dataVisitante={backAwayDataVisitante}/>
@@ -299,11 +331,17 @@ setLayAwayDataVisitante(json);
        
         <TableBackBTTX title={'Back BTTS'} dataCasa={backBTTSDataCasa} dataVisitante={backBTTSDataVisitante}/>
         <TableBackBTTX title={'Back BTTN'} dataCasa={backBTTNDataCasa} dataVisitante={backBTTNDataVisitante}/>
+        
       
         <TableBackHome title={'Lay Home'} dataCasa={layHomeDataCasa} dataVisitante={layHomeDataVisitante}/>
         <TableBackHome title={'Lay Draw'} dataCasa={layDrawDataCasa} dataVisitante={layDrawDataVisitante}/>
         <TableBackHome title={'Lay Away'} dataCasa={layAwayDataCasa} dataVisitante={layAwayDataVisitante}/>
-      
+  */ }
+
+        <TableBackHome title={'Dupla Chance - 1x'} dataCasa={doubleChance1xDataCasa} dataVisitante={doubleChance1xDataVisitante}/>
+        <TableBackHome title={'Dupla Chance - 12'} dataCasa={doubleChance12DataCasa} dataVisitante={doubleChance12DataVisitante}/>
+        <TableBackHome title={'Dupla Chance - x2'} dataCasa={doubleChancex2DataCasa} dataVisitante={doubleChancex2DataVisitante}/>
+       
     </Flex>
   )
 }
