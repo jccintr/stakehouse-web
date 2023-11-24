@@ -12,6 +12,7 @@ import TableBackUnder25 from '../../components/tables/TableBackUnder25'
 import TableBackUnder35 from '../../components/tables/TableBackUnder35'
 import TableBackUnder45 from '../../components/tables/TableBackUnder45'
 import TableBackBTTX from '../../components/tables/TableBackBTTX'
+import TableLeagueBack from '../../components/tables/TableLeagueBack'
 
 const Home = () => {
   const [backHomeDataCasa,setBackHomeDataCasa] = useState([]);
@@ -78,16 +79,25 @@ const Home = () => {
   const [doubleChancex2DataCasa,setDoubleChancex2DataCasa] = useState([]);
   const [doubleChancex2DataVisitante,setDoubleChancex2DataVisitante] = useState([]);
 
+  const [leagueBackHomeDataCasa,setLeagueBackHomeDataCasa] = useState([]);
+  const [leagueBackHomeDataVisitante,setLeagueBackHomeDataVisitante] = useState([]);
+
+  const [leagueBackDrawDataCasa,setLeagueBackDrawDataCasa] = useState([]);
+  const [leagueBackDrawDataVisitante,setLeagueBackDrawDataVisitante] = useState([]);
+
+  const [leagueBackAwayDataCasa,setLeagueBackAwayDataCasa] = useState([]);
+  const [leagueBackAwayDataVisitante,setLeagueBackAwayDataVisitante] = useState([]);
+
  
   const [stake,setStake] = useState(100);
 
   useEffect(()=>{
-    // getBackHomeCasa();
-    // getBackHomeVisitante();
-    // getBackDrawCasa();
-    // getBackDrawVisitante();
-    // getBackAwayCasa();
-    // getBackAwayVisitante();
+    getBackHomeCasa();
+    getBackHomeVisitante();
+    getBackDrawCasa();
+    getBackDrawVisitante();
+    getBackAwayCasa();
+    getBackAwayVisitante();
     
     // getBackOverCasa(0.5);
     // getBackOverVisitante(0.5);
@@ -123,7 +133,8 @@ const Home = () => {
     // getLayHomeCasa();
     // getLayHomeVisitante();
 
-    getDoubleChance();
+    //getDoubleChance();
+    getLeagueBack();
  },[]);
 
  const getBackHomeCasa = async () => {
@@ -306,17 +317,28 @@ const getDoubleChance = async () => {
 
 }
 
+const getLeagueBack = async () => {
+  let json1 = await Api.getLeagueBackHomeCasa(stake,1625);
+  console.log('json1 ' + json1);
+  setLeagueBackHomeDataCasa(json1);
+  let json2 = await Api.getLeagueBackHomeVisitante(stake,1625);
+  setLeagueBackHomeDataVisitante(json2);
+  
+}
+
 
 
 
   return (
     <Flex flexDirection={'column'} alignItems={'center'} bg={'gray.100'}>
       <Header/>
-      {/*
+      
         <TableBackHome title={'Back Home'} dataCasa={backHomeDataCasa} dataVisitante={backHomeDataVisitante}/>
         <TableBackHome title={'Back Draw'} dataCasa={backDrawDataCasa} dataVisitante={backDrawDataVisitante}/>
         <TableBackHome title={'Back Away'} dataCasa={backAwayDataCasa} dataVisitante={backAwayDataVisitante}/>
 
+        <TableLeagueBack title={'League Back Away'} dataCasa={leagueBackHomeDataCasa} dataVisitante={leagueBackHomeDataVisitante}/>
+{/*
         <TableBackOver05 title={'Back Over 0.5 FT'} dataCasa={backOver05DataCasa} dataVisitante={backOver05DataVisitante}/>
         <TableBackOver05 title={'Back Over 1.5 FT'} dataCasa={backOver15DataCasa} dataVisitante={backOver15DataVisitante}/>
         <TableBackOver25 title={'Back Over 2.5 FT'} dataCasa={backOver25DataCasa} dataVisitante={backOver25DataVisitante}/>
@@ -336,11 +358,12 @@ const getDoubleChance = async () => {
         <TableBackHome title={'Lay Home'} dataCasa={layHomeDataCasa} dataVisitante={layHomeDataVisitante}/>
         <TableBackHome title={'Lay Draw'} dataCasa={layDrawDataCasa} dataVisitante={layDrawDataVisitante}/>
         <TableBackHome title={'Lay Away'} dataCasa={layAwayDataCasa} dataVisitante={layAwayDataVisitante}/>
-  */ }
-
         <TableBackHome title={'Dupla Chance - 1x'} dataCasa={doubleChance1xDataCasa} dataVisitante={doubleChance1xDataVisitante}/>
         <TableBackHome title={'Dupla Chance - 12'} dataCasa={doubleChance12DataCasa} dataVisitante={doubleChance12DataVisitante}/>
         <TableBackHome title={'Dupla Chance - x2'} dataCasa={doubleChancex2DataCasa} dataVisitante={doubleChancex2DataVisitante}/>
+  */ }
+
+        
        
     </Flex>
   )

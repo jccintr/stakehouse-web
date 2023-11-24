@@ -331,6 +331,83 @@ export default {
         return response.json();
     },
 
+    // ==============================
+    getLeagueBackHomeCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/leagueBackHomeCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getLeagueBackHomeVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/leagueBackHomeVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getLeagueBackDrawCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/leagueBackDrawCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
+    getLeagueBackDrawVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/leagueBackDrawVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+    getLeagueBackAwayCasa: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/leagueBackAwayCasa`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+    getLeagueBackAwayVisitante: async (stake,season) => {
+        const response = await fetch(`${BASE_API}/leagueBackAwayVisitante`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({stake, season})
+        });
+
+        return response.json();
+    },
+
     
 
 
