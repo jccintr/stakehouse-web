@@ -150,21 +150,41 @@ const getBackHomeVisitante = async () => {
 const getBackDrawCasa = async () => {
   let json = await Api.getBackDrawCasa(stake,1625);
   setBackDrawDataCasa(json);
+  // let tt = 0;
+  // for (let i=0;i<json.length;i++){
+  //     tt = tt + json[i].lucro;
+  // }
+  // console.log('total back draw casa ='+tt);
 }
 
 const getBackDrawVisitante = async () => {
   let json = await Api.getBackDrawVisitante(stake,1625);
   setBackDrawDataVisitante(json);
+  // let tt = 0;
+  // for (let i=0;i<json.length;i++){
+  //     tt = tt + json[i].lucro;
+  // }
+  // console.log('total back draw visitante ='+tt);
 }
 
 const getBackAwayCasa = async () => {
   let json = await Api.getBackAwayCasa(stake,1625);
   setBackAwayDataCasa(json);
+  // let tt = 0;
+  // for (let i=0;i<json.length;i++){
+  //     tt = tt + json[i].lucro;
+  // }
+  // console.log('total back away casa ='+tt);
 }
 
 const getBackAwayVisitante = async () => {
 let json = await Api.getBackAwayVisitante(stake,1625);
 setBackAwayDataVisitante(json);
+// let tt = 0;
+//   for (let i=0;i<json.length;i++){
+//       tt = tt + json[i].lucro;
+//   }
+//   console.log('total back away visitante ='+tt);
 }
 
 const getBackOverCasa = async (over) => {
@@ -319,10 +339,19 @@ const getDoubleChance = async () => {
 
 const getLeagueBack = async () => {
   let json1 = await Api.getLeagueBackHomeCasa(stake,1625);
-  console.log('json1 ' + json1);
   setLeagueBackHomeDataCasa(json1);
   let json2 = await Api.getLeagueBackHomeVisitante(stake,1625);
   setLeagueBackHomeDataVisitante(json2);
+
+  let json3 = await Api.getLeagueBackDrawCasa(stake,1625);
+  setLeagueBackDrawDataCasa(json3);
+  let json4 = await Api.getLeagueBackDrawVisitante(stake,1625);
+  setLeagueBackDrawDataVisitante(json4);
+
+  let json5 = await Api.getLeagueBackAwayCasa(stake,1625);
+  setLeagueBackAwayDataCasa(json5);
+  let json6 = await Api.getLeagueBackAwayVisitante(stake,1625);
+  setLeagueBackAwayDataVisitante(json6);
   
 }
 
@@ -337,7 +366,10 @@ const getLeagueBack = async () => {
         <TableBackHome title={'Back Draw'} dataCasa={backDrawDataCasa} dataVisitante={backDrawDataVisitante}/>
         <TableBackHome title={'Back Away'} dataCasa={backAwayDataCasa} dataVisitante={backAwayDataVisitante}/>
 
-        <TableLeagueBack title={'League Back Away'} dataCasa={leagueBackHomeDataCasa} dataVisitante={leagueBackHomeDataVisitante}/>
+        <TableLeagueBack title={'League Back Home'} dataCasa={leagueBackHomeDataCasa} dataVisitante={leagueBackHomeDataVisitante}/>
+        <TableLeagueBack title={'League Back Draw'} dataCasa={leagueBackDrawDataCasa} dataVisitante={leagueBackDrawDataVisitante}/>
+        <TableLeagueBack title={'League Back Away'} dataCasa={leagueBackAwayDataCasa} dataVisitante={leagueBackAwayDataVisitante}/>
+        
 {/*
         <TableBackOver05 title={'Back Over 0.5 FT'} dataCasa={backOver05DataCasa} dataVisitante={backOver05DataVisitante}/>
         <TableBackOver05 title={'Back Over 1.5 FT'} dataCasa={backOver15DataCasa} dataVisitante={backOver15DataVisitante}/>
